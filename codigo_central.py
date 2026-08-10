@@ -1,5 +1,5 @@
 from historial import reporte_cobertura_geografica, reporte_estadisticas_sesion
-from consumidor_de_json import cargar_datos_caracas
+from consumidor_de_json import cargar_datos_caracas,generar_reporte_caracas
 from consumidor_api import obtener_clima
 from modulo_historicos import solicitar_fechas_usuario, obtener_datos_historicos, procesar_y_graficar_historicos
 municipios_cargados = cargar_datos_caracas('zonas_caracas.json')
