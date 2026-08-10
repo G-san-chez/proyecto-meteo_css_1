@@ -1,6 +1,7 @@
 from historial import reporte_cobertura_geografica, reporte_estadisticas_sesion
 from consumidor_de_json import cargar_datos_caracas
 from consumidor_api import obtener_clima
+from modulo_historicos import solicitar_fechas_usuario, obtener_datos_historicos, procesar_y_graficar_historicos
 municipios_cargados = cargar_datos_caracas('zonas_caracas.json')
 class APP_1:
  
@@ -50,7 +51,7 @@ class APP_1:
                     localidad_elegida = localidades_validas[num_loc]
 
                     # Consultamos la API
-                    temp, hum, viento = obtener_clima(localidad_elegida.latitud, localidad_elegida.longitud)
+                    temp, hum, viento, estado_tiempo = obtener_clima(localidad_elegida.latitud, localidad_elegida.longitud)
 
                     # Imprimimos los resultados
                     print("\n--------------------------------")
@@ -99,7 +100,7 @@ class APP_1:
                     municipio_nombre = coincidencias_mun[num_sel]
 
                     # Consultamos la API
-                    temp, hum, viento = obtener_clima(localidad_elegida.latitud, localidad_elegida.longitud)
+                    temp, hum, viento, estado_tiempo = obtener_clima(localidad_elegida.latitud, localidad_elegida.longitud)
 
                     # Imprimimos los resultados
                     print("\n--------------------------------")
@@ -140,11 +141,38 @@ class APP_1:
                     print("Opción no válida.")
 
             elif opcion == "4":
+                print("\n--- MÓDULO DE DATOS HISTÓRICOS ---")
+                
+                # Primero, pedimos seleccionar la localidad mediante búsqueda directa
+                texto = input("Ingrese el nombre de la localidad a evaluar: ").lower()
+                coincidencias = []
+                
+                for mun in municipios_cargados:
+                    for loc in mun.lista_localidades:
+                        if texto in loc.nombre.lower() and loc.latitud is not None:
+                            coincidencias.append(loc)
+                            
+                if len(coincidencias) == 0:
+                    print("No se encontraron localidades con ese nombre y coordenadas válidas.")
+                else:
+                    contador = 1
+                    for c in coincidencias:
+                        print(f"{contador}. {c.nombre}")
+                        contador += 1
+                        
+                    num_sel = int(input("Seleccione el número de la localidad: ")) - 1
+                    loc_hist = coincidencias[num_sel]
+                    
+                    # Pedimos fechas, consultamos API y procesamos
+                    fecha_ini, fecha_fin = solicitar_fechas_usuario()
+                    lista_historica = obtener_datos_historicos(loc_hist.latitud, loc_hist.longitud, fecha_ini, fecha_fin)
+                    
+                    if lista_historica:
+                        procesar_y_graficar_historicos(lista_historica, loc_hist.nombre)
+                        
+            elif opcion == "5":
                 print("¡Saliendo del programa!")
                 break
-            else:
-                print("Opción incorrecta, intente de nuevo.")
-
-
-
                 
+            else:
+                print("Opción incorrecta, intente de nuevo.")                
