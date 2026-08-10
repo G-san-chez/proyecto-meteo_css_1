@@ -11,14 +11,17 @@ class APP_1:
 # MENÚ PRINCIPAL para busquedas:
 
     def start (self):
-        historial_consultas = []#Definir la lista para el historial antes del bucle
+        
+     historial_consultas = []#Definir la lista para el historial antes del bucle
+     generar_reporte_caracas(municipios_cargados)  
         opcion = ""
-        while opcion != "4":
+        while opcion != "5":
             print("\n=== CONSULTA DEL CLIMA ===")
             print("1. Buscar por Municipio")
             print("2. Buscar por nombre de Localidad")
             print("3. Módulo de Reportes")
-            print("4. Salir")
+            print("4. modulo de datos historicos")
+            print("5. Salir")
             opcion = input("Elija una opción: ")
 
             # Buscar por Municipio y localidad
