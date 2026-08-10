@@ -9,7 +9,7 @@ class APP_1:
 
 # MENÚ PRINCIPAL para busquedas:
 
-    def start ():
+    def start (self):
         historial_consultas = []#Definir la lista para el historial antes del bucle
         opcion = ""
         while opcion != "4":
