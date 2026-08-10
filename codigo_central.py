@@ -112,7 +112,7 @@ class APP_1:
                     print("Velocidad del viento: " + str(viento) + " km/h")
                     print("--------------------------------")
 
-                    # 3. CORRECCIÓN: Guardar en el historial de consultas
+                    # Guardar en el historial de consultas
                     consulta_realizada = {
                         'municipio': municipio_nombre,
                         'localidad': localidad_elegida.nombre,
