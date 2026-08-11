@@ -7,7 +7,7 @@ class RegistroHistorico:
    """
     Almacena los datos climáticos de un momento específico en el pasado.
     """
-    def __init__(self, fecha, temperatura, humedad, precipitacion, viento):
+def __init__(self, fecha, temperatura, humedad, precipitacion, viento):
         self.fecha = fecha
         self.temperatura = temperatura
         self.humedad = humedad
