@@ -6,7 +6,7 @@ def cargar_datos_caracas(ruta_archivo='zonas_caracas.json'):
     """Carga el JSON de zonas de Caracas y devuelve una lista de objetos Municipio."""
     municipios_cargados = []
 
-    # 'with' cierra el archivo automáticamente al terminar
+    # 'with' cierra el archivo al terminar
     with open(ruta_archivo, 'r', encoding='utf-8') as archivo:
         datos = json.load(archivo)
 
