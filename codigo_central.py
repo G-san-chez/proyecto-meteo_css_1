@@ -1,20 +1,18 @@
 from historial import reporte_cobertura_geografica, reporte_estadisticas_sesion
-from consumidor_de_json import cargar_datos_caracas,generar_reporte_caracas
+from consumidor_de_json import cargar_datos_caracas, generar_reporte_caracas
 from consumidor_api import obtener_clima
 from modulo_historicos import solicitar_fechas_usuario, obtener_datos_historicos, procesar_y_graficar_historicos
+
 municipios_cargados = cargar_datos_caracas('zonas_caracas.json')
+
 class APP_1:
- 
-   
     
-
-# MENÚ PRINCIPAL para busquedas:
-
-    def start (self):
-        
-     historial_consultas = []#Definir la lista para el historial antes del bucle
-     generar_reporte_caracas(municipios_cargados)  
+    # MENÚ PRINCIPAL para busquedas:
+    def start(self):
+        historial_consultas = [] # Definir la lista para el historial antes del bucle
+        generar_reporte_caracas(municipios_cargados)  
         opcion = ""
+        
         while opcion != "5":
             print("\n=== CONSULTA DEL CLIMA ===")
             print("1. Buscar por Municipio")
@@ -178,4 +176,4 @@ class APP_1:
                 break
                 
             else:
-                print("Opción incorrecta, intente de nuevo.")                
+                print("Opción incorrecta, intente de nuevo.")              
