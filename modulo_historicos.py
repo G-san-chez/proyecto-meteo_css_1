@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 class RegistroHistorico:
-    """
+   """
     Almacena los datos climáticos de un momento específico en el pasado.
-    Cumple con la norma estricta de no usar diccionarios para almacenar información.
     """
     def __init__(self, fecha, temperatura, humedad, precipitacion, viento):
         self.fecha = fecha
