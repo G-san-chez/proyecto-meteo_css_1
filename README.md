@@ -1,2 +1,2 @@
-# proyecto-meteo_css_1
-_Proyecto_meteo.ccs
+# Proyecto_Sec3_HernándezMagda_SanchezGabriel
+Proyecto_Sec3_HernándezMagda_SanchezGabriel
