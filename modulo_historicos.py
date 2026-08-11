@@ -17,7 +17,6 @@ class RegistroHistorico:
 def solicitar_fechas_usuario():
     """
     Maneja la entrada del usuario asegurando el formato correcto (AAAA-MM-DD).
-    Aporta a la Usabilidad y Tolerancia a fallos del sistema.
     """
     while True:
         try:
@@ -40,7 +39,7 @@ def solicitar_fechas_usuario():
 def obtener_datos_historicos(latitud, longitud, fecha_inicio, fecha_fin):
     """
     Se conecta a la API histórica de Open-Meteo, extrae la información horaria
-    y la encapsula en una lista de objetos RegistroHistorico.
+    y la une en una lista de objetos RegistroHistorico.
     """
     url = f"https://archive-api.open-meteo.com/v1/archive?latitude={latitud}&longitude={longitud}&start_date={fecha_inicio}&end_date={fecha_fin}&hourly=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m"
     
